@@ -21,6 +21,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
     setIsMenuOpen(false);
   };
 
+  const email = "ahmedelgeady@hotmail.com";
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-[250] py-6 md:py-10 px-6 md:px-20 flex justify-between items-center transition-all duration-500">
@@ -29,11 +31,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
           className="flex items-center gap-4 md:gap-6 cursor-pointer group z-[260]" 
           onClick={() => handleNavigation('home')}
         >
-          <div className="w-12 h-12 md:w-14 md:h-14 border border-white/30 rounded-2xl flex items-center justify-center font-black text-lg md:text-xl group-hover:bg-white group-hover:text-black transition-all duration-500 rotate-3 group-hover:rotate-0 bg-black/20 backdrop-blur-md">
+          <div className="w-12 h-12 md:w-14 md:h-14 border border-white/30 rounded-2xl flex items-center justify-center font-black text-lg md:text-xl group-hover:bg-white group-hover:text-black transition-all duration-500 rotate-3 group-hover:rotate-0 bg-black/20 backdrop-blur-md text-white">
             AJ
           </div>
           <div className="hidden sm:block">
-            <p className="text-[9px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] uppercase opacity-40 group-hover:opacity-100 transition-opacity mix-blend-difference">
+            <p className="text-[9px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] uppercase opacity-40 group-hover:opacity-100 transition-opacity mix-blend-difference text-white">
               Ahmed Elgeady / Est. 2008
             </p>
           </div>
@@ -41,10 +43,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 lg:gap-16 mix-blend-difference">
-          {navLinks.reverse().map((link) => (
+          {navLinks.map((link) => (
             <button 
               key={link.id}
-              onClick={() => onNavigate(link.id as any)} 
+              onClick={() => handleNavigation(link.id as any)} 
               className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:scale-110 ${
                 currentPage === link.id ? link.color : 'text-white/70 hover:text-white'
               }`}
@@ -53,7 +55,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
             </button>
           ))}
           <div className="w-12 h-px bg-white/20"></div>
-          <a href="mailto:ahmedeljeady@gmail.com" className="text-[10px] font-black uppercase border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-500 tracking-widest bg-black/10 backdrop-blur-sm">
+          <a 
+            href={`mailto:${email}`}
+            className="text-[10px] font-black uppercase border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-500 tracking-widest bg-black/10 backdrop-blur-sm text-white"
+          >
             Connect
           </a>
         </div>
@@ -71,10 +76,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
       <div className={`fixed inset-0 z-[240] transition-all duration-700 md:hidden ${
         isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
-        {/* Backdrop blur layer */}
         <div className="absolute inset-0 bg-black/90 backdrop-blur-3xl"></div>
         
-        {/* Menu Content */}
         <div className="relative h-full flex flex-col justify-center px-10">
           <div className="space-y-8">
             <p className="text-[10px] font-black tracking-[0.5em] text-cyan-400 uppercase mb-4 opacity-50">Navigation Menu</p>
@@ -98,22 +101,21 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
             
             <div className="flex flex-col items-end gap-6">
               <a 
-                href="mailto:ahmedeljeady@gmail.com" 
+                href={`mailto:${email}`} 
                 className="text-2xl font-black text-white hover:text-cyan-400 transition-colors"
               >
                 Connect With Me
               </a>
               <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] text-right">
                 Mansoura, Egypt<br/>
-                Engineering & Physics
+                Backend Developer & Physics Student
               </p>
             </div>
           </div>
         </div>
 
-        {/* Decorative background text for mobile menu */}
         <div className="absolute bottom-10 left-10 opacity-[0.03] select-none pointer-events-none">
-          <p className="text-[25vw] font-black leading-none">AJ</p>
+          <p className="text-[25vw] font-black leading-none text-white">AJ</p>
         </div>
       </div>
     </>

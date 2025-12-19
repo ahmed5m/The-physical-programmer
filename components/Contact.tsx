@@ -19,29 +19,32 @@ const Contact: React.FC = () => {
     }
   };
 
+  const email = "ahmedelgeady@hotmail.com";
+  const phone = "+201060357954";
+
   return (
-    <section id="contact" className="py-32 bg-zinc-950 border-t border-white/5">
+    <section id="contact" className="py-32 bg-zinc-950 border-t border-white/5 text-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20">
           <div className="text-right">
             <h2 className="text-6xl font-black mb-12">دعنا نصنع <br /> <span className="text-cyan-500">تفاعلاً</span> جديداً</h2>
             <div className="space-y-8">
-              <a href="mailto:ahmedeljeady@gmail.com" className="flex items-center gap-6 group flex-row-reverse">
+              <a href={`mailto:${email}`} className="flex items-center gap-6 group flex-row-reverse">
                 <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-cyan-500 transition-all text-white group-hover:text-black">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">البريد الإلكتروني</p>
-                  <p className="text-xl font-black">ahmedeljeady@gmail.com</p>
+                  <p className="text-xl font-black">{email}</p>
                 </div>
               </a>
-              <a href="tel:+201060357954" className="flex items-center gap-6 group flex-row-reverse">
+              <a href={`https://wa.me/${phone.replace('+', '')}`} target="_blank" rel="noreferrer" className="flex items-center gap-6 group flex-row-reverse">
                 <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-amber-500 transition-all text-white group-hover:text-black">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">واتساب</p>
-                  <p className="text-xl font-black" dir="ltr">+20 106 035 7954</p>
+                  <p className="text-xl font-black" dir="ltr">{phone.replace('20', '+20 ')}</p>
                 </div>
               </a>
             </div>
@@ -62,20 +65,20 @@ const Contact: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] text-gray-500 font-bold uppercase tracking-widest px-1">الاسم الكامل</label>
-                  <input required name="name" type="text" placeholder="مثال: محمد علي" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-right" />
+                  <input required name="name" type="text" placeholder="مثال: محمد علي" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-right text-white" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] text-gray-500 font-bold uppercase tracking-widest px-1">رقم الهاتف</label>
-                  <input required name="phone" type="tel" placeholder="مثال: 010XXXXXXXX" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-left" dir="ltr" />
+                  <input required name="phone" type="tel" placeholder="مثال: 010XXXXXXXX" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-left text-white" dir="ltr" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] text-gray-500 font-bold uppercase tracking-widest px-1">البريد الإلكتروني</label>
-                <input required name="email" type="email" placeholder="example@mail.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-left" dir="ltr" />
+                <input required name="email" type="email" placeholder="example@mail.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-left text-white" dir="ltr" />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] text-gray-500 font-bold uppercase tracking-widest px-1">تفاصيل الرسالة</label>
-                <textarea required name="message" placeholder="كيف يمكن للمهندس أحمد مساعدتك؟" rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-right"></textarea>
+                <textarea required name="message" placeholder="كيف يمكن للمهندس أحمد مساعدتك؟" rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-500 transition-all text-sm text-right text-white"></textarea>
               </div>
               <button 
                 type="submit" 

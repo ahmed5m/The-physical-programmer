@@ -1,46 +1,58 @@
 
 import React from 'react';
-import { Code2, Layout, Palette, Database, Cpu, Terminal, Layers, Rocket } from 'lucide-react';
+import { Layout, Palette, Database, Terminal, Layers, Rocket, ExternalLink, Cpu } from 'lucide-react';
 
 const ProgrammingPage: React.FC = () => {
-  const specialties = [
-    { title: 'Full-Stack Apps', desc: 'بناء تطبيقات ويب قوية باستخدام Laravel للباك-إند و React للفرونت-إند.', icon: <Layers className="w-8 h-8" /> },
-    { title: 'Custom Dashboards', desc: 'لوحات تحكم متطورة لإدارة البيانات والعمليات بدقة وسهولة متناهية.', icon: <Layout className="w-8 h-8" /> },
-    { title: 'UI/UX Design', desc: 'تصميم واجهات مستخدم عصرية تركز على تجربة العميل والجمالية التقنية.', icon: <Palette className="w-8 h-8" /> },
-    { title: 'Database Architect', desc: 'تصميم وبناء قواعد بيانات MySQL معقدة ومحسنة للأداء العالي.', icon: <Database className="w-8 h-8" /> },
+  const projects = [
+    { title: 'Saeed Al-Dahmani', type: 'Law Firm Website', url: 'https://saeedaldahmanii.com/', desc: 'نظام متكامل لمكتب محاماة يركز على إدارة المحتوى والتواصل.' },
+    { title: 'Salah Al-Mubashri', type: 'Legal Consultancy', url: 'https://mublegal.com/', desc: 'منصة استشارات قانونية مبنية بمعايير تقنية عالية.' },
+    { title: 'Student Management', type: 'Internal System', url: '#', desc: 'نظام Laravel متطور لإدارة الكورسات، الطلاب، والحضور.' },
+    { title: 'Sanay3y Marketplace', type: 'Service Platform', url: '#', desc: 'منصة لربط العملاء بالعمال المهرة مع نظام تقييم وإدارة.' },
   ];
 
   const stack = [
-    { name: 'Laravel', level: '95%', color: 'bg-red-500' },
-    { name: 'React.js', level: '90%', color: 'bg-cyan-400' },
-    { name: 'TypeScript', level: '85%', color: 'bg-blue-600' },
-    { name: 'Tailwind CSS', level: '98%', color: 'bg-teal-400' },
-    { name: 'Node.js', level: '80%', color: 'bg-green-500' },
+    { name: 'Laravel (PHP)', level: '95%', color: 'bg-red-500' },
+    { name: 'MySQL Database', level: '90%', color: 'bg-blue-500' },
+    { name: 'JavaScript / jQuery', level: '85%', color: 'bg-amber-400' },
+    { name: 'RESTful APIs', level: '92%', color: 'bg-green-400' },
+    { name: 'WordPress', level: '75%', color: 'bg-blue-600' },
   ];
 
+  const scrollToContact = () => {
+    // Since ProgrammingPage is a separate view, we might need a way to tell App to go home and scroll
+    // For now, if we are on this page, we suggest using the contact info or navigating home
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Logic handled in App.tsx or just redirect home with hash
+      window.location.href = "/#contact";
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-32 pb-20 animate__animated animate__fadeIn">
+    <div className="min-h-screen pt-32 pb-20 animate__animated animate__fadeIn bg-[#030303] text-white">
       <div className="container mx-auto px-6">
         
         {/* Programming Header */}
         <div className="flex flex-col lg:flex-row gap-20 items-center mb-32">
           <div className="lg:w-1/2 text-right">
-            <h3 className="text-amber-500 font-black tracking-[0.5em] uppercase mb-4">Software Engineering</h3>
+            <h3 className="text-amber-500 font-black tracking-[0.5em] uppercase mb-4">Backend Specialist</h3>
             <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
-              نبني <span className="text-outline text-amber-500/50">الكود</span> <br /> بعقلية <span className="text-amber-500">الفيزيائي</span>
+              هندسة <span className="text-outline text-amber-500/50">البيانات</span> <br /> بمعايير <span className="text-amber-500">عالمية</span>
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed mb-10">
-              في عالم البرمجة، المنطق هو القانون. نحن لا نكتب مجرد أسطر برمجية، بل نصمم أنظمة رقمية تتسم بالدقة، الكفاءة، والجمال.
+              متخصص في بناء الأنظمة الخلفية (Backend) وتصميم قواعد البيانات القابلة للتوسع باستخدام Laravel. أحول الأفكار المعقدة إلى أكواد نظيفة وفعالة.
             </p>
             <div className="flex gap-6 justify-end">
                <div className="text-center">
-                  <p className="text-4xl font-black font-space">15+</p>
-                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">مشروع ناجح</p>
+                  <p className="text-4xl font-black font-space">5+</p>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">مشاريع عملاء</p>
                </div>
                <div className="w-px h-12 bg-white/10"></div>
                <div className="text-center">
-                  <p className="text-4xl font-black font-space">100%</p>
-                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">رضا العملاء</p>
+                  <p className="text-4xl font-black font-space">2019</p>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">بداية الكود</p>
                </div>
             </div>
           </div>
@@ -51,12 +63,12 @@ const ProgrammingPage: React.FC = () => {
                   <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
                </div>
-               <div className="space-y-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                  <p className="text-purple-400">class <span className="text-amber-500">AhmedElgeady</span> {'{'}</p>
-                  <p className="pl-6 text-blue-400">public function <span className="text-green-400">buildFuture</span>(Idea $idea) {'{'}</p>
-                  <p className="pl-12 text-gray-400">return $idea-><span className="text-cyan-400">analyze</span>()</p>
-                  <p className="pl-18 text-gray-400">-><span className="text-cyan-400">code</span>()</p>
-                  <p className="pl-18 text-gray-400">-><span className="text-cyan-400">optimize</span>();</p>
+               <div className="space-y-2 opacity-80 group-hover:opacity-100 transition-opacity" dir="ltr">
+                  <p className="text-purple-400">class <span className="text-amber-500">BackendArchitect</span> {'{'}</p>
+                  <p className="pl-6 text-blue-400">public function <span className="text-green-400">deliverProject</span>(Requirements $req) {'{'}</p>
+                  <p className="pl-12 text-gray-400">return $req-><span className="text-cyan-400">laravelOptimized</span>()</p>
+                  <p className="pl-18 text-gray-400">-><span className="text-cyan-400">secureAuth</span>()</p>
+                  <p className="pl-18 text-gray-400">-><span className="text-cyan-400">deploy</span>();</p>
                   <p className="pl-6 text-blue-400">{'}'}</p>
                   <p className="text-purple-400">{'}'}</p>
                </div>
@@ -65,21 +77,31 @@ const ProgrammingPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Specialization Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
-          {specialties.map((s, idx) => (
-            <div key={idx} className="p-10 bg-white/5 border border-white/5 rounded-[2.5rem] hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
-              <div className="text-amber-500 mb-6 group-hover:scale-110 transition-transform inline-block">{s.icon}</div>
-              <h3 className="text-xl font-black mb-4">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+        {/* Real Projects Grid */}
+        <div className="mb-32">
+          <h2 className="text-4xl font-black mb-12 text-right">أعمال <span className="text-amber-500">حقيقية</span></h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((p, idx) => (
+              <div key={idx} className="p-10 bg-white/5 border border-white/5 rounded-[2.5rem] hover:border-amber-500/30 transition-all group text-right">
+                <div className="flex justify-between items-start mb-6 flex-row-reverse">
+                  <h3 className="text-2xl font-black">{p.title}</h3>
+                  {p.url !== '#' && (
+                    <a href={p.url} target="_blank" rel="noreferrer" className="text-amber-500 hover:text-white transition-colors">
+                      <ExternalLink className="w-6 h-6" />
+                    </a>
+                  )}
+                </div>
+                <p className="text-amber-500/70 text-xs font-bold uppercase tracking-widest mb-4">{p.type}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Tech Stack Section */}
         <div className="grid lg:grid-cols-2 gap-20 items-center bg-zinc-950 rounded-[4rem] p-12 lg:p-24 border border-white/5">
           <div>
-            <h2 className="text-5xl font-black mb-12">صندوق <span className="text-amber-500">الأدوات</span> التقني</h2>
+            <h2 className="text-5xl font-black mb-12">المهارات <span className="text-amber-500">التقنية</span></h2>
             <div className="space-y-8">
               {stack.map((item, i) => (
                 <div key={i} className="space-y-3 text-right">
@@ -96,14 +118,14 @@ const ProgrammingPage: React.FC = () => {
           </div>
           <div className="text-right">
             <h3 className="text-3xl font-black mb-6 flex items-center justify-end gap-3">
-               نهج "الكود النظيف" <Terminal className="text-amber-500" />
+               تطوير الـ Backend <Terminal className="text-amber-500" />
             </h3>
             <p className="text-gray-400 leading-loose text-lg mb-8">
-              نؤمن أن البرمجة ليست مجرد جعل الشيء "يعمل"، بل جعله يعمل بكفاءة قصوى، ويكون قابلاً للتوسع (Scalable)، وسهل الصيانة (Maintainable). نتبع معايير الصناعة العالمية في كل سطر نكتبه.
+              أركز على بناء APIs قوية، أنظمة مصادقة آمنة، وهياكل قواعد بيانات محسنة. خبرتي في Laravel تتيح لي تقديم حلول سريعة وآمنة وقابلة للتوسع لتناسب احتياجات الشركات الناشئة والمكاتب المهنية.
             </p>
             <div className="p-8 border-r-4 border-amber-500 bg-amber-500/5 rounded-l-3xl">
               <p className="italic text-amber-200">
-                "أي أحمق يمكنه كتابة كود يفهمه الكمبيوتر، لكن المبرمج الجيد يكتب كوداً يفهمه البشر."
+                "متاح للعمل الحر (Freelance)، الأدوار عن بعد، وفرص مطور Backend Junior."
               </p>
             </div>
           </div>
@@ -117,11 +139,13 @@ const ProgrammingPage: React.FC = () => {
           <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto">
             دعنا نحول رؤيتك إلى واقع رقمي ملموس باستخدام أحدث التقنيات والحلول المبتكرة.
           </p>
-          <button className="px-12 py-6 bg-amber-500 text-black font-black uppercase tracking-widest rounded-2xl hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-amber-500/20 flex items-center gap-4 mx-auto">
+          <button 
+            onClick={scrollToContact}
+            className="px-12 py-6 bg-amber-500 text-black font-black uppercase tracking-widest rounded-2xl hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-amber-500/20 flex items-center gap-4 mx-auto"
+          >
             ابدأ رحلة تطوير مشروعك <Cpu className="w-5 h-5" />
           </button>
         </div>
-
       </div>
     </div>
   );
